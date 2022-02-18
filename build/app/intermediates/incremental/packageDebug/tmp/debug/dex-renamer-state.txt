@@ -1,0 +1,4 @@
+#Fri Feb 18 14:18:37 CET 2022
+base.0=C\:\\wamp64\\www\\BTS2SIO_ALT\\App_GSB\\Tuto_2 (D)\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
