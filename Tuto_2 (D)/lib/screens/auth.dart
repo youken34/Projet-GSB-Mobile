@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_final_fields
 
 import 'package:flutter/material.dart';
+import 'package:gsb_application/screens/inscription.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({Key? key}) : super(key: key);
@@ -70,9 +71,10 @@ bool _secureText = true;
           maxLength: 10, // longueur max de caractère
           maxLines: 1, // nombre max de ligne
           
-        ),
-            ],
-      )),
+        ),   
+        Inscription()],
+      )
+      ),
     );
   }
 }
