@@ -41,7 +41,7 @@ bool _secureText = true;
             filled: true, // syntaxe obligatoire, par defaut le remplissage filled = false
             
           ),
-          keyboardType: TextInputType.name, // le type peut êtrre choisit tel que : email, nombre, mdp etc...
+          keyboardType: TextInputType.name, // le type peut être choisit tel que : email, nombre, mdp etc...
           obscureText: false, // pour masquer du texte
           maxLength: 10, // longueur max de caractère
           maxLines: 1, // nombre max de ligne
@@ -58,19 +58,12 @@ bool _secureText = true;
             fontSize: 24, color: Colors.blue), 
             //border: OutlineInputBorder() // bordure autout d'un input
             //border: InputBorder.none
-              suffixIcon: IconButton(
-                icon: Icon(Icons.security),
-                onPressed: (){
-                  setState(() {
-                    _secureText = !_secureText;
-                  });
-                },
-          ),
+
                 //suffixIcon pour mettre l'icone à droite
             border: UnderlineInputBorder(),
             fillColor: Colors.black12,
             filled: true, // syntaxe obligatoire, par defaut le remplissage filled = false
-            obscureText: _secureText
+            
           ),
           keyboardType: TextInputType.name, // le type peut êtrre choisit tel que : email, nombre, mdp etc...
           obscureText: true, // pour masquer du texte
