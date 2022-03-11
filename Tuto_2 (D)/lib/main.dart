@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gsb_application/screens/term.dart';
 import 'screens/auth.dart';
 import 'screens/home.dart';
 
@@ -13,6 +14,7 @@ class App extends StatelessWidget {
       title: 'Flutter Demo',
       // home: Home(),
       home: AuthScreen(),
+      // home: TermScreen(),
     );
   }
 }
