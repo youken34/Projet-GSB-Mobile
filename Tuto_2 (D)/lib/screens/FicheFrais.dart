@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:gsb_application/screens/home.dart';
 
-class Inscription extends StatelessWidget {
-  const Inscription({Key? key}) : super(key: key);
+class FicheFrais extends StatefulWidget {
+  const FicheFrais({Key? key}) : super(key: key);
 
+  @override
+  State<FicheFrais> createState() => _FicheFraisState();
+}
+
+class _FicheFraisState extends State<FicheFrais> {
   @override
   Widget build(BuildContext context) {
     final ButtonStyle style =
@@ -41,46 +46,27 @@ class Inscription extends StatelessWidget {
             SizedBox(height: 15.0), // Définition des proportions de la 'box'
             TextFormField(
                 decoration: InputDecoration(
-                    labelText: 'Identifiant',
+                    labelText: 'Nombre de Kilomètres',
                     // Nom de l'input
                     border: OutlineInputBorder())),
 
             TextFormField(
               decoration: InputDecoration(
-                labelText: 'Mot de Passe',
+                labelText: 'Indémnités Kilométriques',
                 border: OutlineInputBorder(),
               ),
               obscureText: true,
             ),
             TextFormField(
                 decoration: InputDecoration(
-                    labelText: 'Nom', border: OutlineInputBorder())),
+                    labelText: 'Restauration', border: OutlineInputBorder())),
             TextFormField(
                 decoration: InputDecoration(
-                    labelText: 'Prénom', border: OutlineInputBorder())),
+                    labelText: 'Hôtel', border: OutlineInputBorder())),
 
             TextFormField(
                 decoration: InputDecoration(
-                    labelText: 'Mail', border: OutlineInputBorder())),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 60.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Connexion()),
-                  );
-                },
-                child: const Text('Terminer'),
-                style: ElevatedButton.styleFrom(
-                    // shadowColor: Colors.white,
-                    primary: Colors.white,
-                    onPrimary: Colors.purple, // background color
-                    minimumSize: Size(340, 50),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30))),
-              ),
-            ),
+                    labelText: 'Evènementiel', border: OutlineInputBorder())),
           ])),
         ),
       ),

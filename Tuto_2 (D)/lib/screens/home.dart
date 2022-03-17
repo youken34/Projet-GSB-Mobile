@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gsb_application/screens/FicheFrais.dart';
 
 class Connexion extends StatefulWidget {
   const Connexion({Key? key}) : super(key: key);
@@ -60,6 +61,26 @@ class _ConnexionState extends State<Connexion> {
                         ),
                         obscureText: true,
                       ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 60.0),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const FicheFrais()),
+                            );
+                          },
+                          child: const Text('Connexion'),
+                          style: ElevatedButton.styleFrom(
+                              // shadowColor: Colors.white,
+                              primary: Colors.white,
+                              onPrimary: Colors.purple, // background color
+                              minimumSize: Size(340, 50),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30))),
+                        ),
+                      ),
                     ]))))));
   }
 }
@@ -67,6 +88,10 @@ class _ConnexionState extends State<Connexion> {
 
 
 // AppBar
+
+// a mettre dans le build context 
+// final ButtonStyle style =
+//         TextButton.styleFrom(primary: Theme.of(context).colorScheme.onPrimary);
 
 // appBar: AppBar(
 //         backgroundColor: Colors.purple,
