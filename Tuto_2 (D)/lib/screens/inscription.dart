@@ -18,7 +18,7 @@ class Inscription extends StatelessWidget {
             onPressed: () => {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const Home()),
+                MaterialPageRoute(builder: (context) => const Connexion()),
               )
             },
             child: const Text('Page Connexion'),
