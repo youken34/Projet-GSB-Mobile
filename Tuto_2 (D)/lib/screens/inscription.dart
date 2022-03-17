@@ -10,6 +10,7 @@ class Inscription extends StatelessWidget {
         TextButton.styleFrom(primary: Theme.of(context).colorScheme.onPrimary);
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.purple,
         title: Text('Projet GSB'),
         actions: [
           TextButton(
@@ -35,7 +36,7 @@ class Inscription extends StatelessWidget {
               EdgeInsets.symmetric(vertical: 50.0, horizontal: 30.0), //Padding
           child: Form(
               child: Column(children: <Widget>[
-            Image.asset('assets/images/gsb.png',
+            Image.asset('assets/images/GSB2.png',
                 height: 100.0, width: 100.0), // Propriété du logo
             SizedBox(height: 15.0), // Définition des proportions de la 'box'
             TextFormField(
