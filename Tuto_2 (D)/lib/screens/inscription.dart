@@ -97,7 +97,7 @@ body: SingleChildScrollView(
                 
                 TextFormField(
                   decoration: InputDecoration(
-                    labelText: 'Mail',
+                    labelText: 'Maill',
                     border: UnderlineInputBorder(),            
                   labelStyle : TextStyle(  
                     color: Colors.black,
