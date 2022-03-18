@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gsb_application/shared/constants.dart';
 
 class Inscription extends StatelessWidget {
   const Inscription({Key? key}) : super(key: key);
@@ -6,30 +7,57 @@ class Inscription extends StatelessWidget {
 @override
 Widget build(BuildContext context) {
   return Scaffold(
-body: SingleChildScrollView(
-
-  child: Center( // Tout le container dans cette parenthèse va être centré
-  
-  
-  child: Container(
-
-    //alignment: Alignment.centerRight,
-    //margin: EdgeInsets.all(100.0),
+body: Column(
+mainAxisAlignment: MainAxisAlignment.center,
+children: [
+  Container( // Tout le container dans cette parenthèse va être centré
+    alignment: Alignment.center, 
     decoration: BoxDecoration(
+        border: Border.all(
+          color: Color.fromARGB(255, 255, 255, 255),
+          width: 3,
+        ),
           borderRadius: BorderRadius.circular(10),
-          color: Colors.purpleAccent,
+
+          color: Color.fromARGB(255, 0, 0, 0),
           
           ),
-    padding: EdgeInsets.symmetric(vertical: 20.0),
-    width: 360,
+    padding: EdgeInsets.symmetric(vertical: 20.0,),
     
-    height: 600, //Padding
+    //height: 600, //Padding
+    //constraints: BoxConstraints.expand(),
       
-      child : Form(
+      child : Container(
         
-        child: Column (
+        height: 620,
+        alignment: Alignment.center,
+        width: 600,
+        padding: EdgeInsets.only(left: 10.0, right: 10.0,),
+        decoration: BoxDecoration(
+          border: Border.all(
+          color: Colors.red,
+
+          width: 4,
+        ),
+          boxShadow: [
+            
+                      BoxShadow(
+                        color: Colors.red,
+                        offset: const Offset(0, 0), // Définie le décalage 
+                        blurRadius: 30.0, // Définie à quel point l'ombre est floue
+                        spreadRadius: 6.0, // Définie le rayon de diffusion
+                        
+                      ),
+                      
+                    ],
+          borderRadius: BorderRadius.circular(10),
+          color: Color.fromARGB(255, 15, 15, 15),
           
-          
+          ),
+        child: Column ( // étant donné que le "child" est de type Column, tous les éléments 
+                        // s'afficheront verticalement
+        mainAxisAlignment: MainAxisAlignment.center,
+        
             children: <Widget>[
                 //Align(
                 //alignment: Alignment.centerLeft),
@@ -37,85 +65,119 @@ body: SingleChildScrollView(
                 //Text('Test'),
                 
                 Image.asset('assets/images/gsb.png', height: 100.0, width: 100.0), // Propriété du logo
-                SizedBox(height: 25.0),// Définition des proportions de la 'box'
-                TextFormField(                
+                SizedBox(height: 25.0),
+                // Définition des proportions de la 'box'
+                TextFormField(  
+                                
                 textAlign: TextAlign.left, // Ici c'est le text à l'intérieur de l'input qui est définit
-                decoration: InputDecoration(               
-                  labelText: 'Identifiant', // Nom de l'input
-                  border: UnderlineInputBorder(),            
-                  labelStyle : TextStyle( 
+                decoration: textInputDecoration.copyWith(labelText: 'Nom',
+                enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),                   
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide(color: Colors.red,width: 3.0)  
+                )),   
                      
-                    color: Colors.black,
-                    fontSize: 17,
-                    fontWeight: FontWeight.w900,
-                    
-                      )
                           
-                )
                 
+              
+
+
               ),
-                
+                Wrap(
+                  spacing: 20, // to apply margin in the main axis of the wrap
+                  runSpacing: 20, // to apply margin in the cross axis of the wrap
+                  children: <Widget>[
+                    Text('child 1'),
+                    Text('child 2')
+                  ]
+                ),
                 TextFormField(
-                  decoration: InputDecoration(
-                    labelText: 'Mot de Passe',
+                  
+                  decoration: textInputDecoration.copyWith(labelText: 'Prénom',
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),                   
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide(color: Colors.red,width: 3.0)  
+                )),
                     
-                    border: UnderlineInputBorder(),            
-                  labelStyle : TextStyle(  
-                    color: Colors.black,
-                    fontSize: 17,
-                    fontWeight: FontWeight.w900,
                     
-                      )
-                  ),
                   obscureText: true,
                   
                 ),
-                TextFormField(
-                  decoration: InputDecoration(
-                    labelText: 'Nom',
-                    border: UnderlineInputBorder(),            
-                  labelStyle : TextStyle(  
-                    color: Colors.black,
-                    fontSize: 17,
-                    fontWeight: FontWeight.w900,
-                    
-                      )
-                  )
+                Wrap(
+                  spacing: 20, // to apply margin in the main axis of the wrap
+                  runSpacing: 20, // to apply margin in the cross axis of the wrap
+                  children: <Widget>[
+                    Text('child 1'),
+                    Text('child 2')
+                  ]
                 ),
                 TextFormField(
-                  decoration: InputDecoration(
-                    labelText: 'Prénomm',
-                    border: UnderlineInputBorder(),            
-                  labelStyle : TextStyle(  
-                    color: Colors.black,
-                    fontSize: 17,
-                    fontWeight: FontWeight.w900,
-                    
-                      )
-                  )
+                  
+                  decoration: textInputDecoration.copyWith(labelText: 'Identifiant',
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),                   
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide(color: Colors.red,width: 3.0)  
+                )),
+                  
+                ),
+                Wrap(
+                  spacing: 20, // to apply margin in the main axis of the wrap
+                  runSpacing: 20, // to apply margin in the cross axis of the wrap
+                  children: <Widget>[
+                    Text('child 1'),
+                    Text('child 2')
+                  ]
+                ),
+                TextFormField(
+                  decoration: textInputDecoration.copyWith(labelText: 'Mot de passe',
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),                   
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide(color: Colors.red,width: 3.0)  
+                )), 
+                ),
+                Wrap(
+                  spacing: 20, // to apply margin in the main axis of the wrap
+                  runSpacing: 20, // to apply margin in the cross axis of the wrap
+                  children: <Widget>[
+                    Text('child 1'),
+                    Text('child 2')
+                  ]
                 ),
                 
                 TextFormField(
-                  decoration: InputDecoration(
-                    labelText: 'Maill',
-                    border: UnderlineInputBorder(),            
-                  labelStyle : TextStyle(  
-                    color: Colors.black,
-                    fontSize: 17,
-                    fontWeight: FontWeight.w900,
-                    
-                      )
-                  )
+                  decoration: textInputDecoration.copyWith(labelText: 'Email',
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),                   
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide(color: Colors.red,width: 3.0)  
+                )
+  ),    
                 ),
                 Padding(
 
             padding: const EdgeInsets.symmetric(vertical: 60.0),
             child: ElevatedButton(
-              onPressed: () {
+              onPressed: (
+                 //Navigator.of().push(_createRoute());
+              ) {
                 // Validate will return true if the form is valid, or false if
                 // the form is invalid.
                 
               },
+            
               child: const Text('Envoyer'),
                   
               style: ElevatedButton.styleFrom(
@@ -125,9 +187,14 @@ body: SingleChildScrollView(
                 minimumSize: Size(340, 50),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30)
+
+                    
+                  
                 )
+                
               ),
             ),
+            
           ),
           
 
@@ -135,10 +202,13 @@ body: SingleChildScrollView(
               
             )
           ),
-        ),
+        
   )
+],
+
       ),
 
     );
     }
   }
+  //  floatingLabelStyle: _builtTextStyle(Colors.white),

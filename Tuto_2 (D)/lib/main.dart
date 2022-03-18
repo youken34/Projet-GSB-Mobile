@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gsb_application/screens/inscription.dart';
+import 'package:gsb_application/screens/test.dart';
 import 'screens/auth.dart';
 import 'screens/home.dart';
 
