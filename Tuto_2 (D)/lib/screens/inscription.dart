@@ -175,13 +175,11 @@ children: [
                 context,
                 MaterialPageRoute(builder: (context) => const Inscription()),
               )
-                // Validate will return true if the form is valid, or false if
-                // the form is invalid.
-                
+              
               },
             
               child: const Text('Envoyer'),
-                  
+              
               style: ElevatedButton.styleFrom(
                 //shadowColor: Colors.white,
                 
