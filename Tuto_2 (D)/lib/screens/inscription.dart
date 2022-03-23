@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gsb_application/shared/constants.dart';
 import 'package:gsb_application/shared/inputdeco.dart';
+import 'package:gsb_application/screens/FicheFrais.dart';
+import 'package:gsb_application/screens/home.dart';
+import 'package:gsb_application/screens/test.dart';
 
 class Inscription extends StatelessWidget {
   const Inscription({Key? key}) : super(key: key);
@@ -8,50 +11,73 @@ class Inscription extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
+      appBar: AppBar(
+        backgroundColor: Colors.purple,
+        title: Text('Projet GSB'),
+        actions: [
+          TextButton(
+            style: TextButton.styleFrom(
+                    primary: Color.fromARGB(255, 255, 255, 255),
+                  ),
+            onPressed: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Connexion()),
+              )
+            },
+            child: const Text('Page Connexion'),
+          ),
+          TextButton(
+            style: TextButton.styleFrom(
+                    primary: Color.fromARGB(255, 255, 255, 255),
+                  ),
+            onPressed: () => {
+               Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Inscription()),
+              )
+            },
+            child: const Text('Inscription'),
+          )
+        ],
+      ),
+      body: CustomPaint(
+        
+        painter: BluePainter(),
+         child: Center(
+           
               // Tout le container dans cette parenthèse va être centré
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Color.fromARGB(255, 0, 0, 0),
-                  width: 3,
-                ),
-                borderRadius: BorderRadius.circular(10),
-                color: Color.fromARGB(255, 255, 255, 255),
-              ),
-              padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 10),
-              height: 640,
-
+              
               //constraints: BoxConstraints.expand(),
-              child: Column(
-
+              child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0,),
+                  child: Column(
                   // étant donné que le "child" est de type Column, tous les éléments
                   // s'afficheront verticalement
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     //Align(
                     //alignment: Alignment.centerLeft),
 
                     //Text('Test'),
 
-                    Image.asset('assets/images/gsb.png',
-                        height: 100.0, width: 100.0), // Propriété du logo
-                    SizedBox(height: 25.0),
+                    Image.asset('assets/images/GSB2.png',
+                        height: 200.0, width: 200.0), // Propriété du logo
+                    SizedBox(height: 15.0),
                     // Définition des proportions de la 'box'
                     Material(
+                      
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50.0)),
                       elevation: 20.0,
                       shadowColor: Colors.black,
+                      
                       child: TextFormField(
                         autofocus: false,
                         decoration: InputDecoration(
                           hintStyle: TextStyle(
                             fontWeight: FontWeight.w700,
-                            fontFamily: "Comic sans MS",
+                            fontFamily: "ConcertOne",
                             fontStyle: FontStyle.normal,
                             fontSize: 16.0),
                           hintText: 'Prénom',
@@ -92,7 +118,7 @@ class Inscription extends StatelessWidget {
                           hintText: 'Nom',
                           hintStyle: TextStyle(
                             fontWeight: FontWeight.w700,
-                            fontFamily: "Comic sans MS",
+                            fontFamily: "ConcertOne",
                             fontStyle: FontStyle.normal,
                             fontSize: 16.0),
                           enabledBorder: OutlineInputBorder(
@@ -129,7 +155,7 @@ class Inscription extends StatelessWidget {
                         decoration: InputDecoration(
                           hintStyle: TextStyle(
                             fontWeight: FontWeight.w700,
-                            fontFamily: "Schyler",
+                            fontFamily: "ConcertOne",
                             fontStyle: FontStyle.normal,
                             fontSize: 16.0),
                           hintText: 'Identifiant',
@@ -164,11 +190,12 @@ class Inscription extends StatelessWidget {
                       shadowColor: Colors.black,
                       child: TextFormField(
                         style: TextStyle(
-                         fontFamily: "ConcertOne",
+
                         ),
                         autofocus: false,
                         decoration: InputDecoration(
                           hintStyle: TextStyle(
+                            fontFamily: "ConcertOne",
                             fontWeight: FontWeight.w700,
                             fontStyle: FontStyle.normal,
                             fontSize: 16.0),
@@ -207,8 +234,9 @@ class Inscription extends StatelessWidget {
                         autofocus: false,
                         decoration: InputDecoration(
                           hintStyle: TextStyle(
+                            
                             fontWeight: FontWeight.w700,
-                            fontFamily: "DayRoman",
+                            fontFamily: "ConcertOne",
                             fontStyle: FontStyle.normal,
                             fontSize: 16.0),
                           hintText: 'Mot de Passe',
@@ -251,7 +279,9 @@ class Inscription extends StatelessWidget {
                               },
                           child: const Text('Envoyer',
                               style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.w900)),
+                                  fontSize: 18, fontWeight: FontWeight.w900,
+                                  fontFamily: "Candal"
+                                  )),
                           style: TextButton.styleFrom(
                               // également possible avec style: TextButton(foregroundColor: MaterialStateProperty.all(Color.fromARGB(255, 195, 0, 255)),
                               elevation: 20,
@@ -265,9 +295,47 @@ class Inscription extends StatelessWidget {
                               ))),
                     ),
                   ])),
-        ],
+         )
       ),
     );
   }
 }
 //  floatingLabelStyle: _builtTextStyle(Colors.white),
+class BluePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final height = size.height;
+    final width = size.width;
+    Paint paint = Paint();
+
+    Path mainBackground = Path();
+    mainBackground.addRect(Rect.fromLTRB(0, 0, width, height));
+    paint.color = Color.fromARGB(255, 162, 0, 255);
+    canvas.drawPath(mainBackground, paint);
+
+    Path ovalPath = Path();
+    // Start paint from 20% height to the left
+    ovalPath.moveTo(0, height * 0.2);
+
+    // paint a curve from current position to middle of the screen
+    ovalPath.quadraticBezierTo(
+        width * 0.45, height * 0.25, width * 0.51, height * 0.5);
+
+    // Paint a curve from current position to bottom left of screen at width * 0.1
+    ovalPath.quadraticBezierTo(width * 0.58, height * 0.8, width * 0.1, height);
+
+    // draw remaining line to bottom left side
+    ovalPath.lineTo(0, height);
+
+    // Close line to reset it back
+    ovalPath.close();
+
+    paint.color = Color.fromARGB(255, 243, 243, 243);
+    canvas.drawPath(ovalPath, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return oldDelegate != this;
+  }
+}

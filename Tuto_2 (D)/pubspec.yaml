@@ -76,7 +76,11 @@ flutter:
   fonts:
   - family: ConcertOne
     fonts:
-      - asset: fonts/ConcertOne-Regular.ttf
+      - asset: assets/fonts/ConcertOne-Regular.ttf
+
+  - family: Candal
+    fonts:
+      - asset: assets/fonts/Candal-Regular.ttf
  
   #
   # For details regarding fonts from package dependencies,

@@ -8,9 +8,13 @@ class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
   Widget build(BuildContext context) {
-    return const MaterialApp( // MaterialApp : android
+    return  MaterialApp( // MaterialApp : android
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
+      theme: ThemeData(
+
+        //primarySwatch: Colors.blue,
+      ),
       // home: Home(),
       home: Inscription(),
     );

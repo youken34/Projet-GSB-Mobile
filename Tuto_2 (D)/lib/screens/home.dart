@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gsb_application/screens/FicheFrais.dart';
+import 'package:gsb_application/screens/inscription.dart';
 
 class Connexion extends StatefulWidget {
   const Connexion({Key? key}) : super(key: key);
@@ -20,7 +21,9 @@ class _ConnexionState extends State<Connexion> {
               title: Text('Projet GSB'),
               actions: [
                 TextButton(
-                  style: style,
+                  style: TextButton.styleFrom(
+                    primary: Color.fromARGB(255, 255, 255, 255),
+                  ),
                   onPressed: () => {
                     Navigator.push(
                       context,
@@ -31,10 +34,17 @@ class _ConnexionState extends State<Connexion> {
                   child: const Text('Page Connexion'),
                 ),
                 TextButton(
-                  style: style,
-                  onPressed: () {},
-                  child: const Text('Historique'),
-                )
+                  style: TextButton.styleFrom(
+                    primary: Color.fromARGB(255, 255, 255, 255),
+                  ),
+            onPressed: () => {
+               Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Inscription()),
+              )
+            },
+            child: const Text('Inscription'),
+          )
               ],
             ),
             body: SingleChildScrollView(
