@@ -169,11 +169,12 @@ children: [
                 Padding(
 
             padding: const EdgeInsets.symmetric(vertical: 60.0),
-            child: ElevatedButton(
-              onPressed: (
-                
-                 //Navigator.of().push(_createRoute());
-              ) {
+            
+            child: TextButton(
+              onPressed: () => { Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Inscription()),
+              )
                 // Validate will return true if the form is valid, or false if
                 // the form is invalid.
                 
@@ -181,10 +182,10 @@ children: [
             
               child: const Text('Envoyer'),
                   
-              style: ElevatedButton.styleFrom(
+              style: TextButton.styleFrom(
                 //shadowColor: Colors.white,
                 primary: Colors.white,
-                onPrimary: Colors.purple, // background color
+                ///onPrimary: Colors.purple, // background color
                 minimumSize: Size(340, 50),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30)
