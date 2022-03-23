@@ -129,7 +129,7 @@ class Inscription extends StatelessWidget {
                         decoration: InputDecoration(
                           hintStyle: TextStyle(
                             fontWeight: FontWeight.w700,
-                            fontFamily: "Comic sans MS",
+                            fontFamily: "Schyler",
                             fontStyle: FontStyle.normal,
                             fontSize: 16.0),
                           hintText: 'Identifiant',
@@ -167,7 +167,7 @@ class Inscription extends StatelessWidget {
                         decoration: InputDecoration(
                           hintStyle: TextStyle(
                             fontWeight: FontWeight.w700,
-                            fontFamily: "Schyler",
+                            fontFamily: "Roboto Condensed",
                             fontStyle: FontStyle.normal,
                             fontSize: 16.0),
                           hintText: 'Email',

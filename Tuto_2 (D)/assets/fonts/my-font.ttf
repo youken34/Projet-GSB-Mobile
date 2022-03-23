@@ -1,0 +1,2 @@
+Text(widget.title, style: TextStyle(fontFamily: 'Schyler'))
+ThemeData(fontFamily: 'DayRoman');
