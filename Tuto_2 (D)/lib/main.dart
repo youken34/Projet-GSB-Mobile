@@ -8,7 +8,7 @@ class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return const MaterialApp( // MaterialApp : android
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       // home: Home(),
