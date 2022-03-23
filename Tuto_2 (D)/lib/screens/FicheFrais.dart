@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gsb_application/screens/home.dart';
+import 'package:gsb_application/screens/inscription.dart';
 
 class FicheFrais extends StatefulWidget {
   const FicheFrais({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class _FicheFraisState extends State<FicheFrais> {
             onPressed: () => {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const Connexion()),
+                MaterialPageRoute(builder: (context) => const Inscription()),
               )
             },
             child: const Text('Page Connexion'),

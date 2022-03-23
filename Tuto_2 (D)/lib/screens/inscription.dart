@@ -1,89 +1,215 @@
 import 'package:flutter/material.dart';
-import 'package:gsb_application/screens/home.dart';
+import 'package:gsb_application/shared/constants.dart';
 
 class Inscription extends StatelessWidget {
   const Inscription({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    final ButtonStyle style =
-        TextButton.styleFrom(primary: Theme.of(context).colorScheme.onPrimary);
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.purple,
-        title: Text('Projet GSB'),
-        actions: [
-          TextButton(
-            style: style,
-            onPressed: () => {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Connexion()),
-              )
-            },
-            child: const Text('Page Connexion'),
-          ),
-          TextButton(
-            style: style,
-            onPressed: () {},
-            child: const Text('Historique'),
-          )
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding:
-              EdgeInsets.symmetric(vertical: 50.0, horizontal: 30.0), //Padding
-          child: Form(
-              child: Column(children: <Widget>[
-            Image.asset('assets/images/GSB2.png',
-                height: 100.0, width: 100.0), // Propriété du logo
-            SizedBox(height: 15.0), // Définition des proportions de la 'box'
-            TextFormField(
-                decoration: InputDecoration(
-                    labelText: 'Identifiant',
-                    // Nom de l'input
-                    border: OutlineInputBorder())),
-
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: 'Mot de Passe',
-                border: OutlineInputBorder(),
-              ),
-              obscureText: true,
-            ),
-            TextFormField(
-                decoration: InputDecoration(
-                    labelText: 'Nom', border: OutlineInputBorder())),
-            TextFormField(
-                decoration: InputDecoration(
-                    labelText: 'Prénom', border: OutlineInputBorder())),
-
-            TextFormField(
-                decoration: InputDecoration(
-                    labelText: 'Mail', border: OutlineInputBorder())),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 60.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Connexion()),
-                  );
-                },
-                child: const Text('Terminer'),
-                style: ElevatedButton.styleFrom(
-                    // shadowColor: Colors.white,
-                    primary: Colors.white,
-                    onPrimary: Colors.purple, // background color
-                    minimumSize: Size(340, 50),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30))),
-              ),
-            ),
-          ])),
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+body: Column(
+mainAxisAlignment: MainAxisAlignment.center,
+children: [
+  Container( // Tout le container dans cette parenthèse va être centré
+    alignment: Alignment.center, 
+    decoration: BoxDecoration(
+        border: Border.all(
+          color: Color.fromARGB(255, 255, 255, 255),
+          width: 3,
         ),
+          borderRadius: BorderRadius.circular(10),
+
+          color: Color.fromARGB(255, 0, 0, 0),
+          
+          ),
+    padding: EdgeInsets.symmetric(vertical: 20.0,),
+    
+    //height: 600, //Padding
+    //constraints: BoxConstraints.expand(),
+      
+      child : Container(
+        
+        height: 620,
+        alignment: Alignment.center,
+        width: 600,
+        padding: EdgeInsets.only(left: 10.0, right: 10.0,),
+        decoration: BoxDecoration(
+          border: Border.all(
+          color: Colors.red,
+
+          width: 4,
+        ),
+          boxShadow: [
+            
+                      BoxShadow(
+                        color: Colors.red,
+                        offset: const Offset(0, 0), // Définie le décalage 
+                        blurRadius: 30.0, // Définie à quel point l'ombre est floue
+                        spreadRadius: 6.0, // Définie le rayon de diffusion
+                        
+                      ),
+                      
+                    ],
+          borderRadius: BorderRadius.circular(10),
+          color: Color.fromARGB(255, 15, 15, 15),
+          
+          ),
+        child: Column ( // étant donné que le "child" est de type Column, tous les éléments 
+                        // s'afficheront verticalement
+        mainAxisAlignment: MainAxisAlignment.center,
+        
+            children: <Widget>[
+                //Align(
+                //alignment: Alignment.centerLeft),
+                
+                //Text('Test'),
+                
+                Image.asset('assets/images/gsb.png', height: 100.0, width: 100.0), // Propriété du logo
+                SizedBox(height: 25.0),
+                // Définition des proportions de la 'box'
+                TextFormField(  
+                                
+                textAlign: TextAlign.left, // Ici c'est le text à l'intérieur de l'input qui est définit
+                decoration: textInputDecoration.copyWith(labelText: 'Nom',
+                enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),                   
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide(color: Colors.red,width: 3.0)  
+                )),   
+                     
+                          
+                
+              
+
+
+              ),
+                Wrap(
+                  spacing: 20, // to apply margin in the main axis of the wrap
+                  runSpacing: 20, // to apply margin in the cross axis of the wrap
+                  children: <Widget>[
+                    Text('child 1'),
+                    Text('child 2')
+                  ]
+                ),
+                TextFormField(
+                  
+                  decoration: textInputDecoration.copyWith(labelText: 'Prénom',
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),                   
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide(color: Colors.red,width: 3.0)  
+                )),
+                    
+                    
+                  obscureText: true,
+                  
+                ),
+                Wrap(
+                  spacing: 20, // to apply margin in the main axis of the wrap
+                  runSpacing: 20, // to apply margin in the cross axis of the wrap
+                  children: <Widget>[
+                    Text('child 1'),
+                    Text('child 2')
+                  ]
+                ),
+                TextFormField(
+                  
+                  decoration: textInputDecoration.copyWith(labelText: 'Identifiant',
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),                   
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide(color: Colors.red,width: 3.0)  
+                )),
+                  
+                ),
+                Wrap(
+                  spacing: 20, // to apply margin in the main axis of the wrap
+                  runSpacing: 20, // to apply margin in the cross axis of the wrap
+                  children: <Widget>[
+                    Text('child 1'),
+                    Text('child 2')
+                  ]
+                ),
+                TextFormField(
+                  decoration: textInputDecoration.copyWith(labelText: 'Mot de passe',
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),                   
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide(color: Colors.red,width: 3.0)  
+                )), 
+                ),
+                Wrap(
+                  spacing: 20, // to apply margin in the main axis of the wrap
+                  runSpacing: 20, // to apply margin in the cross axis of the wrap
+                  children: <Widget>[
+                    Text('child 1'),
+                    Text('child 2')
+                  ]
+                ),
+                
+                TextFormField(
+                  decoration: textInputDecoration.copyWith(labelText: 'Email',
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),                   
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide(color: Colors.red,width: 3.0)  
+                )
+  ),    
+                ),
+                Padding(
+
+            padding: const EdgeInsets.symmetric(vertical: 60.0),
+            
+            child: TextButton(
+              onPressed: () => { Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Inscription()),
+              )
+                // Validate will return true if the form is valid, or false if
+                // the form is invalid.
+                
+              },
+            
+              child: const Text('Envoyer'),
+                  
+              style: TextButton.styleFrom(
+                //shadowColor: Colors.white,
+                primary: Colors.white,
+                ///onPrimary: Colors.purple, // background color
+                minimumSize: Size(340, 50),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)
+
+                    
+                  
+                )
+                
+              ),
+            ),
+            
+          ),
+          
+
+              ]
+              
+            )
+          ),
+        
+  )
+],
+
       ),
     );
+    }
   }
-}
+  //  floatingLabelStyle: _builtTextStyle(Colors.white),
