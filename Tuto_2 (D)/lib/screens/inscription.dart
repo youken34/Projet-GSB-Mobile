@@ -163,11 +163,13 @@ class Inscription extends StatelessWidget {
                       elevation: 20.0,
                       shadowColor: Colors.black,
                       child: TextFormField(
+                        style: TextStyle(
+                         fontFamily: "ConcertOne",
+                        ),
                         autofocus: false,
                         decoration: InputDecoration(
                           hintStyle: TextStyle(
                             fontWeight: FontWeight.w700,
-                            fontFamily: "Roboto Condensed",
                             fontStyle: FontStyle.normal,
                             fontSize: 16.0),
                           hintText: 'Email',
