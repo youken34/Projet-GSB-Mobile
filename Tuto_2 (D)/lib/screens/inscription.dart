@@ -24,25 +24,25 @@ children: [
           ),
     padding: EdgeInsets.symmetric(vertical: 20.0,),
     
-    //height: 600, //Padding
+    height: 650, //Padding
     //constraints: BoxConstraints.expand(),
       
       child : Container(
         
-        height: 620,
+        height: 562,
         alignment: Alignment.center,
         width: 600,
         padding: EdgeInsets.only(left: 10.0, right: 10.0,),
         decoration: BoxDecoration(
           border: Border.all(
-          color: Colors.red,
+          color: Color.fromARGB(255, 225, 0, 255),
 
           width: 4,
         ),
           boxShadow: [
             
                       BoxShadow(
-                        color: Colors.red,
+                        color: Color.fromARGB(255, 195, 0, 255),
                         offset: const Offset(0, 0), // Définie le décalage 
                         blurRadius: 30.0, // Définie à quel point l'ombre est floue
                         spreadRadius: 6.0, // Définie le rayon de diffusion
@@ -51,7 +51,7 @@ children: [
                       
                     ],
           borderRadius: BorderRadius.circular(10),
-          color: Color.fromARGB(255, 15, 15, 15),
+          color: Color.fromARGB(255, 255, 255, 255),
           
           ),
         child: Column ( // étant donné que le "child" est de type Column, tous les éléments 
@@ -76,7 +76,7 @@ children: [
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide(color: Colors.red,width: 3.0)  
+                  borderSide: BorderSide( color: Color.fromARGB(255, 195, 0, 255), width: 3.0),
                 )),   
                      
                           
@@ -89,8 +89,8 @@ children: [
                   spacing: 20, // to apply margin in the main axis of the wrap
                   runSpacing: 20, // to apply margin in the cross axis of the wrap
                   children: <Widget>[
-                    Text('child 1'),
-                    Text('child 2')
+                    Text(''),
+                    Text('')
                   ]
                 ),
                 TextFormField(
@@ -101,7 +101,7 @@ children: [
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide(color: Colors.red,width: 3.0)  
+                  borderSide: BorderSide( color: Color.fromARGB(255, 195, 0, 255), width: 3.0),
                 )),
                     
                     
@@ -112,8 +112,8 @@ children: [
                   spacing: 20, // to apply margin in the main axis of the wrap
                   runSpacing: 20, // to apply margin in the cross axis of the wrap
                   children: <Widget>[
-                    Text('child 1'),
-                    Text('child 2')
+                    Text(''),
+                    Text('')
                   ]
                 ),
                 TextFormField(
@@ -124,7 +124,7 @@ children: [
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide(color: Colors.red,width: 3.0)  
+                  borderSide: BorderSide( color: Color.fromARGB(255, 195, 0, 255), width: 3.0),
                 )),
                   
                 ),
@@ -132,8 +132,8 @@ children: [
                   spacing: 20, // to apply margin in the main axis of the wrap
                   runSpacing: 20, // to apply margin in the cross axis of the wrap
                   children: <Widget>[
-                    Text('child 1'),
-                    Text('child 2')
+                    Text(''),
+                    Text('')
                   ]
                 ),
                 TextFormField(
@@ -143,15 +143,15 @@ children: [
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide(color: Colors.red,width: 3.0)  
+                  borderSide: BorderSide( color: Color.fromARGB(255, 195, 0, 255), width: 3.0),
                 )), 
                 ),
                 Wrap(
                   spacing: 20, // to apply margin in the main axis of the wrap
                   runSpacing: 20, // to apply margin in the cross axis of the wrap
                   children: <Widget>[
-                    Text('child 1'),
-                    Text('child 2')
+                    Text(''),
+                    Text('')
                   ]
                 ),
                 
@@ -162,14 +162,14 @@ children: [
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide(color: Colors.red,width: 3.0)  
+                  borderSide: BorderSide( color: Color.fromARGB(255, 195, 0, 255), width: 3.0), 
                 )
   ),    
                 ),
                 Padding(
 
-            padding: const EdgeInsets.symmetric(vertical: 60.0),
-            
+            padding: const EdgeInsets.symmetric(vertical: 10.0),
+          
             child: TextButton(
               onPressed: () => { Navigator.push(
                 context,
@@ -182,14 +182,15 @@ children: [
             
               child: const Text('Envoyer'),
                   
-              style: TextButton.styleFrom(
+              style: ElevatedButton.styleFrom(
                 //shadowColor: Colors.white,
-                primary: Colors.white,
-                ///onPrimary: Colors.purple, // background color
+                
+                primary:  Color.fromARGB(255, 195, 0, 255),
+                onPrimary: Color.fromARGB(255, 248, 248, 248), // background color
                 minimumSize: Size(340, 50),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30)
-
+                  
                     
                   
                 )
