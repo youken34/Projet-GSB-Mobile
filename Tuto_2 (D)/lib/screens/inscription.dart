@@ -14,12 +14,12 @@ children: [
     alignment: Alignment.center, 
     decoration: BoxDecoration(
         border: Border.all(
-          color: Color.fromARGB(255, 255, 255, 255),
+          color: Color.fromARGB(255, 223, 223, 223),
           width: 3,
         ),
           borderRadius: BorderRadius.circular(10),
 
-          color: Color.fromARGB(255, 0, 0, 0),
+          color: Color.fromARGB(255, 202, 202, 202),
           
           ),
     padding: EdgeInsets.symmetric(vertical: 20.0,),
