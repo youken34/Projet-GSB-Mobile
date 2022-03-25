@@ -12,7 +12,7 @@ class Inscription extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.purple,
+        backgroundColor: Color.fromARGB(255, 1, 132, 255),
         title: Text('Projet GSB'),
         actions: [
           TextButton(
