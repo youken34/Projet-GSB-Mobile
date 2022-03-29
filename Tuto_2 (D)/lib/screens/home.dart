@@ -40,7 +40,7 @@ class _ConnexionState extends State<Connexion> {
             onPressed: () => {
                Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const Inscription()),
+                MaterialPageRoute(builder: (context) =>  Inscription()),
               )
             },
             child: const Text('Inscription'),

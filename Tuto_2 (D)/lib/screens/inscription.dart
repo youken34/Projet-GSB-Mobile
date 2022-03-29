@@ -4,10 +4,25 @@ import 'package:gsb_application/shared/inputdeco.dart';
 import 'package:gsb_application/screens/FicheFrais.dart';
 import 'package:gsb_application/screens/home.dart';
 import 'package:gsb_application/screens/test.dart';
+import 'package:flutter/src/material/icon_button.dart';
 
-class Inscription extends StatelessWidget {
-  const Inscription({Key? key}) : super(key: key);
+class Inscription extends StatefulWidget {
+  @override
+  _InscriptionState createState() => _InscriptionState();
+}
 
+class _InscriptionState extends State<Inscription> {
+  final TextEditingController _controller = TextEditingController();
+  bool notVisible = false;
+  void _togglevisibility() { // fonction qui jonche entre l'état true/false de la variable notVisible
+    setState(() {
+      notVisible = !notVisible;
+    });
+  }
+  //TextEditingController = queryTextEditingController = new TextEditingController();
+   //Inscription({Key? key}) : super(key: key);
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +49,7 @@ class Inscription extends StatelessWidget {
             onPressed: () => {
                Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const Inscription()),
+                MaterialPageRoute(builder: (context) =>  Inscription()),
               )
             },
             child: const Text('Inscription'),
@@ -73,29 +88,11 @@ class Inscription extends StatelessWidget {
                       shadowColor: Colors.black,
                       
                       child: TextFormField(
+                        controller: _controller,
+                        //controller: queryTextEditingController,
                         autofocus: false,
-                        decoration: InputDecoration(
-                          hintStyle: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            fontFamily: "ConcertOne",
-                            fontStyle: FontStyle.normal,
-                            fontSize: 16.0),
-                          hintText: 'Prénom',
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide(
-                              width: 2,
-                              color: Color.fromARGB(255, 255, 255, 255),
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide(
-                                color: Color.fromARGB(255, 195, 0, 255),
-                                width: 3.0),
-                          ),
-                          fillColor: Colors.white,
-                          filled: true,
+                        decoration: inputDeco.copyWith(
+                          hintText: "Prénom",
                         ),
                       ),
                     ),
@@ -113,29 +110,8 @@ class Inscription extends StatelessWidget {
                       shadowColor: Colors.black,
                       child: TextFormField(
                         autofocus: false,
-                        
-                        decoration: InputDecoration(
-                          hintText: 'Nom',
-                          hintStyle: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            fontFamily: "ConcertOne",
-                            fontStyle: FontStyle.normal,
-                            fontSize: 16.0),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide(
-                              width: 2,
-                              color: Color.fromARGB(255, 255, 255, 255),
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide(
-                                color: Color.fromARGB(255, 195, 0, 255),
-                                width: 3.0),
-                          ),
-                          fillColor: Colors.white,
-                          filled: true,
+                        decoration: inputDeco.copyWith(
+                          hintText: "Nom",
                         ),
                       ),
                     ),
@@ -152,28 +128,8 @@ class Inscription extends StatelessWidget {
                       shadowColor: Colors.black,
                       child: TextFormField(
                         autofocus: false,
-                        decoration: InputDecoration(
-                          hintStyle: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            fontFamily: "ConcertOne",
-                            fontStyle: FontStyle.normal,
-                            fontSize: 16.0),
-                          hintText: 'Identifiant',
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide(
-                              width: 2,
-                              color: Color.fromARGB(255, 255, 255, 255),
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide(
-                                color: Color.fromARGB(255, 195, 0, 255),
-                                width: 3.0),
-                          ),
-                          fillColor: Colors.white,
-                          filled: true,
+                        decoration: inputDeco.copyWith(
+                          hintText: "Identifiant",
                         ),
                       ),
                     ),
@@ -193,28 +149,8 @@ class Inscription extends StatelessWidget {
 
                         ),
                         autofocus: false,
-                        decoration: InputDecoration(
-                          hintStyle: TextStyle(
-                            fontFamily: "ConcertOne",
-                            fontWeight: FontWeight.w700,
-                            fontStyle: FontStyle.normal,
-                            fontSize: 16.0),
-                          hintText: 'Email',
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide(
-                              width: 2,
-                              color: Color.fromARGB(255, 255, 255, 255),
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide(
-                                color: Color.fromARGB(255, 195, 0, 255),
-                                width: 3.0),
-                          ),
-                          fillColor: Colors.white,
-                          filled: true,
+                        decoration: inputDeco.copyWith(
+                          hintText: "Email",
                         ),
                       ),
                     ),
@@ -231,31 +167,26 @@ class Inscription extends StatelessWidget {
                       elevation: 20.0,
                       shadowColor: Colors.black,
                       child: TextFormField(
+                        
+                        obscureText: notVisible,
+                        onChanged: (value) {
+                         setState(() {
+                           String query = value;
+                         }); 
+                        },
                         autofocus: false,
-                        decoration: InputDecoration(
-                          hintStyle: TextStyle(
-                            
-                            fontWeight: FontWeight.w700,
-                            fontFamily: "ConcertOne",
-                            fontStyle: FontStyle.normal,
-                            fontSize: 16.0),
-                          hintText: 'Mot de Passe',
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide(
-                              width: 2,
-                              color: Color.fromARGB(255, 255, 255, 255),
-                            ),
+                        decoration: inputDeco.copyWith(
+                          hintText: "Mot de passe",
+                          suffixIcon: GestureDetector( // suffixIcon : une icone à l'intérieur d'un input
+                            onTap: () {
+                              _togglevisibility();
+                            }, 
+                            child: Icon(
+                                      notVisible ? Icons.visibility : Icons
+                                          .visibility_off, color: Colors.black,),
                           ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide(
-                                color: Color.fromARGB(255, 195, 0, 255),
-                                width: 3.0),
-                          ),
-                          fillColor: Colors.white,
-                          filled: true,
                         ),
+                          
                       ),
                     ),
                     Wrap(
@@ -269,14 +200,11 @@ class Inscription extends StatelessWidget {
                         vertical: 0.0,
                       ),
                       child: TextButton(
-                          onPressed: () => {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const Inscription()),
-                                )
+                          onPressed: ()  {
+                                String query = _controller.text;
+                                print(query);
                               },
+                            
                           child: const Text('Envoyer',
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.w900,
@@ -294,11 +222,17 @@ class Inscription extends StatelessWidget {
                                 //side: BorderSide(color: Color.fromARGB(255, 195, 0, 255), width: 2),
                               ))),
                     ),
+                     /* IconButton(icon: Icon(Icons.telegram), onPressed: () {
+                      String query = _controller.text;
+                      print(query);
+                    }
+                    ), */
                   ])),
          )
       ),
     );
   }
+
 }
 //  floatingLabelStyle: _builtTextStyle(Colors.white),
 class BluePainter extends CustomPainter {

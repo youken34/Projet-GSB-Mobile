@@ -4,27 +4,57 @@ import 'package:gsb_application/shared/inputdeco.dart';
 import 'package:gsb_application/screens/FicheFrais.dart';
 import 'package:gsb_application/screens/home.dart';
 
-class Test extends StatelessWidget {
-  const Test({Key? key}) : super(key: key);
+
+
+class Test extends StatefulWidget {
+  @override
+  _TestState createState() => _TestState();
+}
+
+class _TestState extends State<Test> {
+  
+  var _controller = TextEditingController();
+  bool notVisible = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomPaint(
-        painter: BluePainter(),
-        child: Center(
-          child: Column(
+      body: Center(
+ 
+            child: Column(
+              children: [
+                Row(
+                   
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'You have pushed the button this many times:',
+            children:[
+              Expanded(
+              child: TextFormField(
+                autofocus: false,
+                decoration: InputDecoration(
+                 suffixIcon:  IconButton(
+                    onPressed: () {
+                              setState(() {
+                                notVisible!=notVisible;
+                              });
+                            },
+                            icon: Icon(
+                              notVisible==true? Icons.visibility: Icons.visibility_off
+                            ),
+                  ) 
+                ),
+              )
               ),
-              
+              IconButton(icon: Icon(Icons.telegram), onPressed: () {
+                      String query = _controller.text;
+                      print(query);
+                    }
+                    ),
             ],
           ),
+              ]
         ),
-      ),
-     
+              
+      )
     );
   }
 }

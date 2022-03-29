@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:gsb_application/shared/constants.dart';
 
-const inputDeco = InputDecoration(
+final inputDeco = InputDecoration(
                           
-                        enabledBorder: OutlineInputBorder(
-              
-             borderSide: BorderSide(
-               
-               color: Color.fromARGB(255, 255, 255, 255),width: 2.0)
-               ),
-                  // L'input à l'état passif
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red,width: 5.0)
-                    ),  
-                  // L'input lorsque on écrit à l'intérieur 
-                  labelText: 'Identifiant', //
+                        hintStyle: hintDeco,
+                          hintText: "Email",
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide: BorderSide(
+                              width: 2,
+                              color: Color.fromARGB(255, 255, 255, 255),
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 195, 0, 255),
+                                width: 3.0),
+                          ),
+                          fillColor: Colors.white,
+                          filled: true,
 );
