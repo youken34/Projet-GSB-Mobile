@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gsb_application/screens/FicheFrais.dart';
 import 'package:gsb_application/screens/inscription.dart';
+import 'package:http/http.dart' as http;
+
 
 class Connexion extends StatefulWidget {
   const Connexion({Key? key}) : super(key: key);
@@ -10,6 +12,7 @@ class Connexion extends StatefulWidget {
 }
 
 class _ConnexionState extends State<Connexion> {
+  
   @override
   Widget build(BuildContext context) {
     final ButtonStyle style =

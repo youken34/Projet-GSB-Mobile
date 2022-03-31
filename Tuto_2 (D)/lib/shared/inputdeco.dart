@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gsb_application/shared/constants.dart';
+import 'package:gsb_application/screens/inscription.dart';
+import 'package:gsb_application/screens/home.dart';
+
 
 final inputDeco = InputDecoration(
                           
@@ -21,3 +24,35 @@ final inputDeco = InputDecoration(
                           fillColor: Colors.white,
                           filled: true,
 );
+
+/*
+final barDeco = AppBar(
+        backgroundColor: Color.fromARGB(255, 1, 132, 255),
+        title: Text('Projet GSB'),
+        actions: [
+          TextButton(
+            style: TextButton.styleFrom(
+                    primary: Color.fromARGB(255, 255, 255, 255),
+                  ),
+            onPressed: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Connexion()),
+              )
+            },
+            child: const Text('Page Connexion'),
+          ),
+          TextButton(
+            style: TextButton.styleFrom(
+                    primary: Color.fromARGB(255, 255, 255, 255),
+                  ),
+            onPressed: () => {
+               Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) =>  Inscription()),
+              )
+            },
+            child: const Text('Inscription'),
+          )
+        ],
+      ); */

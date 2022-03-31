@@ -5,6 +5,7 @@ import 'package:gsb_application/screens/FicheFrais.dart';
 import 'package:gsb_application/screens/home.dart';
 import 'package:gsb_application/screens/test.dart';
 import 'package:flutter/src/material/icon_button.dart';
+import 'package:http/http.dart' as http;
 
 class Inscription extends StatefulWidget {
   @override
@@ -12,11 +13,32 @@ class Inscription extends StatefulWidget {
 }
 
 class _InscriptionState extends State<Inscription> {
-  final TextEditingController _controller = TextEditingController();
-  bool notVisible = false;
+  TextEditingController _controllerPrenom = TextEditingController();
+  TextEditingController _controllerNom = TextEditingController();
+  TextEditingController _controllerEmail = TextEditingController();
+  TextEditingController _controllerIdentifiant = TextEditingController();
+  TextEditingController _controllerMdp = TextEditingController();
+  
+    
+  InsertMethod() async {
+    String theUrl = "http://localhost:54235/inscription.php";
+    /*var res = await http.post(Uri.encodeFull(theUrl), headers: {"Accept": "application/json"},
+    body: {
+      "prenom":_controllerPrenom,
+      "nom":_controllerNom,
+      "identifiant":_controllerIdentifiant,
+      "email":_controllerEmail,
+      "mdp":_controllerEmail,
+    } 
+    ); */
+  }
+
+  bool _notVisible = false;
+  
+
   void _togglevisibility() { // fonction qui jonche entre l'état true/false de la variable notVisible
     setState(() {
-      notVisible = !notVisible;
+      _notVisible = !_notVisible; // l'underscore avant la  fonction indique qu'elle est privée
     });
   }
   //TextEditingController = queryTextEditingController = new TextEditingController();
@@ -88,7 +110,8 @@ class _InscriptionState extends State<Inscription> {
                       shadowColor: Colors.black,
                       
                       child: TextFormField(
-                        controller: _controller,
+                        
+                        controller: _controllerPrenom,
                         //controller: queryTextEditingController,
                         autofocus: false,
                         decoration: inputDeco.copyWith(
@@ -109,6 +132,7 @@ class _InscriptionState extends State<Inscription> {
                       elevation: 20.0,
                       shadowColor: Colors.black,
                       child: TextFormField(
+                        controller: _controllerNom,
                         autofocus: false,
                         decoration: inputDeco.copyWith(
                           hintText: "Nom",
@@ -145,8 +169,9 @@ class _InscriptionState extends State<Inscription> {
                       elevation: 20.0,
                       shadowColor: Colors.black,
                       child: TextFormField(
+                        controller: _controllerEmail,
                         style: TextStyle(
-
+                          
                         ),
                         autofocus: false,
                         decoration: inputDeco.copyWith(
@@ -167,8 +192,8 @@ class _InscriptionState extends State<Inscription> {
                       elevation: 20.0,
                       shadowColor: Colors.black,
                       child: TextFormField(
-                        
-                        obscureText: notVisible,
+                        controller: _controllerMdp,
+                        obscureText: _notVisible,
                         onChanged: (value) {
                          setState(() {
                            String query = value;
@@ -182,7 +207,7 @@ class _InscriptionState extends State<Inscription> {
                               _togglevisibility();
                             }, 
                             child: Icon(
-                                      notVisible ? Icons.visibility : Icons
+                                      _notVisible ? Icons.visibility : Icons
                                           .visibility_off, color: Colors.black,),
                           ),
                         ),
@@ -201,10 +226,11 @@ class _InscriptionState extends State<Inscription> {
                       ),
                       child: TextButton(
                           onPressed: ()  {
-                                String query = _controller.text;
-                                print(query);
+                                   InsertMethod();
+
+                            /*    String query = _controller.text;
+                                print(query); // fonction permettant d'envoyer du texte dans la console de l'inspecteur */
                               },
-                            
                           child: const Text('Envoyer',
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.w900,
@@ -222,11 +248,7 @@ class _InscriptionState extends State<Inscription> {
                                 //side: BorderSide(color: Color.fromARGB(255, 195, 0, 255), width: 2),
                               ))),
                     ),
-                     /* IconButton(icon: Icon(Icons.telegram), onPressed: () {
-                      String query = _controller.text;
-                      print(query);
-                    }
-                    ), */
+                     
                   ])),
          )
       ),
@@ -273,3 +295,5 @@ class BluePainter extends CustomPainter {
     return oldDelegate != this;
   }
 }
+
+
