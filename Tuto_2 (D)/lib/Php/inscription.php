@@ -1,4 +1,6 @@
 <?php
+function insertion(){
+
     include "connexion.php";
 
     $name = filter_var($_POST['nom'], FILTER_SANITIZE_STRING);
@@ -38,8 +40,10 @@
     }
     echo json_encode([
         "data"=>[
-            $msg,
-            $succes
+            'msgCome' => $msg,
+            'success' => $succes
         ]
     ]);
+
+}
 ?>

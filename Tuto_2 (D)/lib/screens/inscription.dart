@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:gsb_application/shared/constants.dart';
 import 'package:gsb_application/shared/inputdeco.dart';
@@ -19,18 +21,37 @@ class _InscriptionState extends State<Inscription> {
   TextEditingController _controllerIdentifiant = TextEditingController();
   TextEditingController _controllerMdp = TextEditingController();
   
-    
   InsertMethod() async {
-    String theUrl = "http://localhost:54235/inscription.php";
-    /*var res = await http.post(Uri.encodeFull(theUrl), headers: {"Accept": "application/json"},
-    body: {
+    Uri theUrl =  Uri.parse("http://localhost/Project-GSB-Site-Web/public/api/demo");
+    final response = await http.post(theUrl, body: jsonEncode({
       "prenom":_controllerPrenom,
-      "nom":_controllerNom,
-      "identifiant":_controllerIdentifiant,
-      "email":_controllerEmail,
-      "mdp":_controllerEmail,
-    } 
-    ); */
+       "nom":_controllerNom,
+       "identifiant":_controllerIdentifiant,
+       "email":_controllerEmail,
+       "mdp":_controllerEmail,
+    }));
+    final content = jsonDecode(response.body);
+    if (content.success == true) {
+      Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) =>  Connexion()),
+              );
+    }
+    else () {
+       Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) =>  FicheFrais()),
+              );
+    };
+    // var res = await http.post(Uri.encodeFull(theUrl), headers: {"Accept": "application/json"},
+    // body: {
+    //   "prenom":_controllerPrenom,
+    //   "nom":_controllerNom,
+    //   "identifiant":_controllerIdentifiant,
+    //   "email":_controllerEmail,
+    //   "mdp":_controllerEmail,
+    // } 
+    // ); 
   }
 
   bool _notVisible = false;
