@@ -18,7 +18,7 @@ class _ConnexionState extends State<Connexion> {
     final ButtonStyle style =
         TextButton.styleFrom(primary: Theme.of(context).colorScheme.onPrimary);
     return SafeArea(
-        child: Scaffold(
+         child: Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.purple,
               title: Text('Projet GSB'),
